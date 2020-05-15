@@ -1,0 +1,76 @@
+Sub Stockmarket():
+        Dim worksheetName As String
+        Dim Ticker As String
+        Ticker = ""
+        Dim year_Open As Double
+        year_Open = 0
+        Dim year_Close As Double
+        year_Close = 0
+        Dim Change_Price As Double
+        Change_Price = 0
+        Dim Change_Percent As Double
+        Change_Percent = 0
+        Dim Volume As Double
+        Volume = 0
+        
+        Dim Summary As Long
+        Summary = 2
+        Dim lastrow As Long
+        
+    
+    For Each ws In Worksheets
+
+            ws.Cells(1, 9).Value = "Ticker"
+            ws.Cells(1, 10).Value = "Yearly Change"
+            ws.Cells(1, 11).Value = "Percent Change"
+            ws.Cells(1, 12).Value = "Total Stock Volume"
+            
+            Summary = 2
+            
+            lastrow = ws.Cells(Rows.Count, 1).End(xlUp).Row
+            
+            year_Open = ws.Cells(2, 3).Value
+
+        For i = 2 To lastrow
+            If ws.Cells(i + 1, 1).Value <> ws.Cells(i, 1).Value Then
+
+                Ticker = ws.Cells(i, 1).Value
+                year_Close = ws.Cells(i, 6).Value
+                Change_Price = year_Close - year_Open
+        
+                If year_Open <> 0 Then
+                    Change_Percent = (Change_Price / year_Open) * 100
+                End If
+                
+                    Volume = Volume + ws.Cells(i, 7).Value
+                
+                    ws.Range("I" & Summary).Value = Ticker
+                    ws.Range("J" & Summary).Value = Change_Price
+
+                If (Change_Price > 0) Then
+                    ws.Range("J" & Summary).Interior.ColorIndex = 4
+                ElseIf (Change_Price <= 0) Then
+                    ws.Range("J" & Summary).Interior.ColorIndex = 3
+                End If
+                    ws.Range("K" & Summary).Value = (CStr(Change_Percent) & "%")
+                    ws.Range("L" & Summary).Value = Volume
+           
+
+                Summary = Summary + 1
+
+                Change_Price = 0
+                year_Close = 0
+                
+                year_Open = ws.Cells(i + 1, 3).Value
+                
+                Change_Percent = 0
+                Volume = 0
+                
+        
+
+            
+            End If
+        Next i
+    Next ws
+End Sub
+
