@@ -22,3 +22,17 @@ You are well on your way to becoming a programmer and Excel master! In this home
 * [Test Data](Resources/alphabetical_testing.xlsx) - Use this while developing your scripts.
 
 * [Stock Data](Resources/Multiple_year_stock_data.xlsx) - Run your scripts on this data to generate the final homework report.
+
+### Stock market analyst
+
+![stock Market](Images/stockmarket.jpg)
+
+## Instructions
+
+* Create a script that will loop through all the stocks for one year for each run and take the following information.
+
+  * The ticker symbol.
+
+  * Yearly change from opening price at the beginning of a given year to the closing price at the end of that year.
+
+  * The percent change from opening price at the beginning of a given year to the closing price at the end of that year.
