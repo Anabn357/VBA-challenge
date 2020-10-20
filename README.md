@@ -7,7 +7,7 @@ You are well on your way to becoming a programmer and Excel master! In this home
 ### Before You Begin
 
 1. Create a new repository for this project called `VBA-challenge`. **Do not add this homework to an existing repository**.
-
+  
 2. Clone the new repository to your computer.
 
 3. Inside your local git repository, create a directory for both of the VBA Challenges. Use the folder name to correspond to the challenge: **VBAStocks**.
